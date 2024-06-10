@@ -73,7 +73,7 @@ class Track2Window(QWidget):
         self.grid_size = 20
         self.track = self.create_track()
         self.start_position = (1, 1)
-        self.finish_position = (self.grid_size - 2, self.grid_size - 2)
+        self.finish_position = (self.grid_size - 2, 1)
         self.player_positions = [self.start_position, (1, 2)]
         self.speeds = [1, 1]
         self.current_player = 0
@@ -96,7 +96,7 @@ class Track2Window(QWidget):
         self.increase_speed_button = QPushButton('Увеличить скорость')
         self.increase_speed_button.setFixedSize(150, 30)
         self.increase_speed_button.clicked.connect(self.increase_speed)
-        self.decrease_speed_button = QPushButton('Уменьш��ть скорость')
+        self.decrease_speed_button = QPushButton('Уменьшить скорость')
         self.decrease_speed_button.setFixedSize(150, 30)
         self.decrease_speed_button.clicked.connect(self.decrease_speed)
 
@@ -131,13 +131,19 @@ class Track2Window(QWidget):
             track[i][0] = 1
             track[i][self.grid_size-1] = 1
 
-        for i in range(1, self.grid_size - 1):
-            track[i][2] = 1
-            track[i][self.grid_size - 2] = 1
+        for i in range(3, self.grid_size - 3):
+            track[i][3] = 3
+            track[i][self.grid_size - 3] = 3
 
-        for j in range(1, self.grid_size - 1):
-            track[2][j] = 1
-            track[self.grid_size - 2][j] = 1
+        for j in range(2, self.grid_size - 3):
+            track[2][j] = 3
+            track[self.grid_size - 3][j] = 3
+
+        for i in range(6, self.grid_size - 6):
+            track[6][i] = 1
+            track[self.grid_size - 7][i] = 1
+            track[i][6] = 1
+            track[i][self.grid_size - 7] = 1
 
         return track
 
@@ -191,7 +197,6 @@ class Track2Window(QWidget):
         self.update_grid()
         self.speed_labels[0].setText(f'Speed: {self.speeds[0]}')
         self.speed_labels[1].setText(f'Speed: {self.speeds[1]}')
-
 
 class Track1Window(QWidget):
     def __init__(self):
