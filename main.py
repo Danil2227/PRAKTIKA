@@ -73,8 +73,6 @@ class GameWindow(QWidget):
 
 
 
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QGridLayout, QLabel, QPushButton, QApplication, QHBoxLayout
-from PyQt6.QtCore import Qt
 
 class Track2Window(QWidget):
     def __init__(self):
@@ -275,8 +273,6 @@ class Track2Window(QWidget):
             self.speed_changed = True
 
 
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QGridLayout, QLabel, QPushButton, QApplication, QHBoxLayout
-from PyQt6.QtCore import Qt
 
 
 class Track1Window(QWidget):
@@ -586,7 +582,7 @@ class GameMenu(QWidget):
         play_btn.move(300, 225)
         word_label.move(235, 45)
         rules_btn.move(300, 280)
-        exit_btn.move(300, 330)
+        exit_btn.move(300, 335)
 
         self.setWindowTitle('Меню игры')
         self.setGeometry(0, 0, 800, 600)
