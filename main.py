@@ -1,3 +1,4 @@
+import os
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QGridLayout, QHBoxLayout
 from PyQt6.QtCore import Qt, QTimer
@@ -34,14 +35,14 @@ class GameWindow(QWidget):
 
         # QLabel для отображения изображения трассы 1
         self.track1_label = QLabel(self)
-        self.track1_pixmap = QPixmap(r'C:\Users\DANIL\PycharmProjects\GAME\TRASSA1.jpg')  # Укажите путь к изображению
+        self.track1_pixmap = QPixmap(os.path.join(os.path.dirname(__file__), 'TRASSA1.jpg'))  # Укажите путь к изображению
         self.track1_label.setPixmap(self.track1_pixmap)
         self.track1_label.setScaledContents(True)  # Подгонка под размер QLabel
         self.track1_label.setFixedSize(350, 300)  # Задайте размер QLabel для изображения
         self.track1_label.move(15, 250)  # Расположите ниже кнопки трассы 1
 
         self.track2_label = QLabel(self)
-        self.track2_pixmap = QPixmap(r'C:\Users\DANIL\PycharmProjects\GAME\TRASSA2.jpg')  # Укажите путь к изображению
+        self.track2_pixmap = QPixmap(os.path.join(os.path.dirname(__file__), 'TRASSA2.jpg'))  # Укажите путь к изображению
         self.track2_label.setPixmap(self.track2_pixmap)
         self.track2_label.setScaledContents(True)  # Подгонка под размер QLabel
         self.track2_label.setFixedSize(350, 300)  # Задайте размер QLabel для изображения
@@ -130,7 +131,7 @@ class Track2Window(QWidget):
 
     def create_buttons(self):
         directions = [("←", 0, -1), ("↑", -1, 0), ("↓", 1, 0), ("→", 0, 1),
-                      ("⭩", 1, -1), ("⭨", 1, 1), ("⭦", -1, -1), ("Ы", -1, 1)]
+                      ("⭩", 1, -1), ("⭨", 1, 1), ("⭦", -1, -1), ("⭧", -1, 1)]
         for text, dx, dy in directions:
             button = QPushButton(text)
             button.setFixedSize(40, 40)
